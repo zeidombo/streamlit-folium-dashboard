@@ -3,8 +3,7 @@
 A python streamlit dashboard app that visualizes data in an interactive folium map. The dashboard is a remake of [*Fraud and Identity Theft Report*](https://public.tableau.com/app/profile/federal.trade.commission/viz/FraudandIDTheftMaps/AllReportsbyState) published by US Federal Trade Commission.
 
 ## Demo
-[Streamlit App](https://zytaga.com)
-
+[Streamlit App](https://zytaga-streamlit-folium-dashboard-streamlit-app-1all7m.streamlit.app/)
 <!-- ## Screenshot
 ![(screenshot)](./screenshot.png?raw=true) -->
 
