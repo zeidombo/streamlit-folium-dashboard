@@ -4,8 +4,8 @@ A python streamlit dashboard app that visualizes data in an interactive folium m
 
 ## Demo
 [Streamlit App](https://zytaga-streamlit-folium-dashboard-streamlit-app-1all7m.streamlit.app/)
-<!-- ## Screenshot
-![(screenshot)](./screenshot.png?raw=true) -->
+## Screenshot
+![(screenshot)](./screenshot.png?raw=true)
 
 ## How to run this app
 ```
