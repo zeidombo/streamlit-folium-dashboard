@@ -1,6 +1,6 @@
 import folium
 import pandas as pd
-from millify import millify
+# from millify import millify
 import streamlit as st
 from streamlit_folium import st_folium
 
@@ -22,8 +22,8 @@ def display_fraud_facts(df, year, quarter, state_name,
                                            ) if len(df[field_name]) else 0
     else:
         total = df[field_name].sum()
-    st.metric(metric_title, nf + millify(
-        total, precision=2))
+    st.metric(metric_title, nf + '{:,}'.format(
+        total))
 
 
 def display_map(df, year, quarter):
@@ -50,12 +50,10 @@ def display_map(df, year, quarter):
 
     for feature in choropleth.geojson.data['features']:
         state_name = feature['properties']['name']
-        feature['properties']['population'] = 'Population: ' + \
-            str(millify(df.loc[state_name, 'State Pop'][0], precision=2)
-                if state_name in list(df.index) else 'Not Available')
-        feature['properties']['per_100k'] = 'Report/100k Population: ' + \
-            str(millify(df.loc[state_name, 'Reports per 100K-F&O together'][0], precision=2)
-                if state_name in list(df.index) else 'Not Available')
+        feature['properties']['population'] = 'Population: ' + '{:,}'.format(
+            df.loc[state_name, 'State Pop'][0]) if state_name in list(df.index) else 'Not Available'
+        feature['properties']['per_100k'] = 'Report/100k Population: ' + '{:,.2f}'.format(
+            df.loc[state_name, 'Reports per 100K-F&O together'][0]) if state_name in list(df.index) else 'Not Available'
 
     choropleth.geojson.add_child(
         folium.features.GeoJsonTooltip(
